@@ -1,0 +1,75 @@
+.adduser-page {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.adduser-card {
+  background-color: #111;
+  border: 2px solid #c8e600;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.adduser-title {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #c8e600;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #000;
+  border: 1px solid #c8e600;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  color: #555;
+}
+
+.form-group input:focus {
+  border-color: #00bcd4;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #00bcd4;
+  color: #000;
+  border: 2px solid #c8e600;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0097a7;
+  color: #fff;
+}

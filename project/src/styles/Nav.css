@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    justify-content: center;
+    color: red;
+    gap: 2rem;
+}
+#li{
+    color: rgb(244, 244, 248);
+    background: rgb(47, 46, 46);
+    border-radius: 5px;
+    border: 10px;
+    margin: 40px;
+    padding: 6px 10px;
+    width: 100px;
+    height: 30px;
+    box-shadow: 2px 3px 3px rgb(59, 221, 121);
+}

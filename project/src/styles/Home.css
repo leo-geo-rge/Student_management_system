@@ -1,0 +1,41 @@
+#home{
+    background: black;
+    color: beige;
+    gap: 8rem;
+    padding: 40px 60px;
+}
+
+.det{
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    align-items:start;
+    display: flex;
+    justify-content: center;
+
+}
+#cards{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    background: rgb(96, 192, 252);
+    margin: 40px;
+    color: rgb(10, 10, 10);
+    padding: 60px 70px;
+    border: 5px solid rgb(162, 157, 8);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 4px rgb(215, 209, 209);
+}
+
+#Bu{
+    color: rgb(236, 234, 234);
+    background: black;
+    box-shadow: 2px 3px 3px white;
+}
