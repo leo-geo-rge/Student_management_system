@@ -11,7 +11,7 @@ function ViewUser() {
 
   async function fetchStudents() {
     try {
-      const response = await fetch("https://student-management-system-2-rj3jv.onrender.com");
+      const response = await fetch("https://student-management-system-2-r3jv.onrender.com");
       const data = await response.json();
       setStudents(data);
       setLoading(false);
