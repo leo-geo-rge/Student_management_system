@@ -11,7 +11,7 @@ function ViewUser() {
 
   async function fetchStudents() {
     try {
-      const response = await fetch("https://student-management-system-2-r3jv.onrender.com");
+      const response = await fetch("https://student-management-system-2-rj3jv.onrender.com/students");
       const data = await response.json();
       setStudents(data);
       setLoading(false);
@@ -25,9 +25,10 @@ function ViewUser() {
     const confirm = window.confirm("Are you sure you want to delete this student?");
     if (!confirm) return;
     try {
-      const response = await fetch(`http://localhost:5000/students/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(`https://student-management-system-2-rj3jv.onrender.com/students/${id}`,{
+    method: "DELETE",
+    }
+   );
       const data = await response.json();
       alert(data.message);
       setStudents(students.filter((student) => student._id !== id));

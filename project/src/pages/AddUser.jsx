@@ -19,7 +19,7 @@ function AddUser() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await fetch("https://student-management-system-2-rj3jv.onrender.com", {
+      const response = await fetch("https://student-management-system-2-rj3jv.onrender.com/addstudent",{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
