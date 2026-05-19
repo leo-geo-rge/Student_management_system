@@ -9,28 +9,51 @@ function AddUser() {
     department: "",
   });
 
+  
   function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
+  setFormData({
+    ...formData,
+    [e.target.name]:
+      e.target.name === "age"
+        ? Number(e.target.value)
+        : e.target.value,
+  });
+}
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      const response = await fetch("https://student-management-system3-pskr.onrender.com/addstudent",{
+ async function handleSubmit(e) {
+  e.preventDefault();
+
+  try {
+    const response = await fetch(
+      "https://student-management-system3-pskr.onrender.com/addstudent",
+      {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
-      });
-      const data = await response.json();
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
       alert(data.message);
-      setFormData({ name: "", age: "", course: "", department: "" });
-    } catch (error) {
-      alert("Something went wrong. Is the server running?");
+
+      setFormData({
+        name: "",
+        age: "",
+        course: "",
+        department: "",
+      });
+    } else {
+      alert(data.message || "Failed to add student");
     }
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong.");
   }
+}
 
   return (
     <div className="adduser-page">
