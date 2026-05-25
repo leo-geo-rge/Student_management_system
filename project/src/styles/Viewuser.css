@@ -32,6 +32,7 @@
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
   border: 2px solid #c8e600;
   border-radius: 10px;
+  overflow-x: auto;
   overflow: hidden;
 }
 

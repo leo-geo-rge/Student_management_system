@@ -52,8 +52,6 @@
   font-size: clamp(14px, 2.5vw, 15px);
   outline: none;
   box-sizing: border-box;
-  /* prevents iOS from zooming in on input focus (font-size must be ≥ 16px on iOS) */
-  -webkit-appearance: none;
 }
 
 .form-group input::placeholder {
