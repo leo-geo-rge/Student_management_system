@@ -3,6 +3,7 @@
   min-height: 100vh;
   padding: 40px 20px;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 .viewuser-container {
@@ -15,7 +16,7 @@
 .viewuser-title {
   color: #fff;
   text-align: center;
-  font-size: clamp(20px, 5vw, 32px); /* scales with screen */
+  font-size: clamp(20px, 5vw, 32px);
   margin-bottom: 30px;
 }
 
@@ -25,20 +26,19 @@
   font-size: 16px;
 }
 
-/* ── Table wrapper: enables horizontal scroll on small screens ── */
+/* ── Table wrapper ── */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  overflow-x: auto;                  /* ✅ only this — no overflow: hidden */
+  -webkit-overflow-scrolling: touch;
   border: 2px solid #c8e600;
   border-radius: 10px;
-  overflow-x: auto;
-  overflow: hidden;
+  /* ✅ overflow: hidden REMOVED */
 }
 
 .student-table {
   width: 100%;
-  min-width: 500px; /* prevents table from collapsing too much */
+  min-width: 500px;
   border-collapse: collapse;
 }
 
@@ -49,7 +49,7 @@
   text-align: left;
   font-weight: bold;
   font-size: clamp(12px, 2vw, 14px);
-  white-space: nowrap; /* keep headers on one line */
+  white-space: nowrap;
 }
 
 .student-table tr {
@@ -64,7 +64,7 @@
   padding: 10px 12px;
   color: #fff;
   font-size: clamp(12px, 2vw, 14px);
-  word-break: break-word; /* long text wraps instead of overflowing */
+  word-break: break-word;
 }
 
 .delete-btn {
@@ -78,14 +78,17 @@
   font-size: 13px;
   transition: background-color 0.3s;
   white-space: nowrap;
-  touch-action: manipulation; /* faster tap response on mobile */
+  touch-action: manipulation;
 }
 
 .delete-btn:hover {
   background-color: #b71c1c;
 }
 
-/* ── Responsive breakpoints ── */
+.delete-btn:active {
+  background-color: #7f0000;
+}
+
 @media (max-width: 600px) {
   .viewuser-page {
     padding: 20px 12px;
