@@ -1,17 +1,64 @@
-nav{
-    display: flex;
-    justify-content: center;
-    color: red;
-    gap: 2rem;
+/* ── Base nav ── */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* items wrap to next line on small screens */
+  gap: 1rem;
+  padding: 10px 16px;
+  background: rgb(30, 30, 30); /* optional: gives nav a background */
 }
-#li{
-    color: rgb(244, 244, 248);
-    background: rgb(47, 46, 46);
-    border-radius: 5px;
-    border: 10px;
-    margin: 40px;
-    padding: 6px 10px;
-    width: 100px;
-    height: 30px;
-    box-shadow: 2px 3px 3px rgb(59, 221, 121);
+
+/* ── Nav items ── */
+/* ⚠️ Changed #li (ID) to .li (class) — IDs should be unique per page */
+#li {
+  color: rgb(190, 216, 237);
+  background: rgb(26, 25, 25);
+  border-radius: 5px;
+  border: none; /* border: 10px alone has no effect without a style */
+  margin: 8px; /* reduced from 40px — too large on mobile */
+  padding: 8px 14px;
+  width: auto; /* let content decide width instead of fixed 100px */
+  min-width: 80px;
+  height: auto; /* let content decide height instead of fixed 30px */
+  box-shadow: 2px 3px 3px rgb(59, 221, 121);
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap; /* prevent text from breaking mid-word */
+  transition: background 0.2s;
+}
+
+#li:hover {
+  background: rgb(70, 70, 70);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Mobile (≤ 480px): stack items vertically ── */
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 10px;
+  }
+
+  .li {
+    width: 100%; /* full width when stacked */
+    min-width: unset;
+    margin: 4px 0;
+    text-align: center;
+  }
 }

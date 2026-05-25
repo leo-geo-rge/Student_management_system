@@ -1,3 +1,4 @@
+/* ── Page wrapper ── */
 .adduser-page {
   background-color: #000;
   min-height: 100vh;
@@ -5,8 +6,11 @@
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
+  padding: 20px 16px; /* prevents card from touching screen edges on mobile */
+  box-sizing: border-box;
 }
 
+/* ── Card ── */
 .adduser-card {
   background-color: #111;
   border: 2px solid #c8e600;
@@ -14,15 +18,18 @@
   padding: 40px;
   width: 100%;
   max-width: 450px;
+  box-sizing: border-box; /* padding stays inside the width */
 }
 
+/* ── Title ── */
 .adduser-title {
   color: #fff;
   text-align: center;
   margin-bottom: 30px;
-  font-size: 28px;
+  font-size: clamp(20px, 5vw, 28px); /* scales smoothly across screen sizes */
 }
 
+/* ── Form group ── */
 .form-group {
   margin-bottom: 20px;
 }
@@ -32,7 +39,7 @@
   color: #c8e600;
   margin-bottom: 6px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
 }
 
 .form-group input {
@@ -42,9 +49,11 @@
   border: 1px solid #c8e600;
   border-radius: 6px;
   color: #fff;
-  font-size: 15px;
+  font-size: clamp(14px, 2.5vw, 15px);
   outline: none;
   box-sizing: border-box;
+  /* prevents iOS from zooming in on input focus (font-size must be ≥ 16px on iOS) */
+  -webkit-appearance: none;
 }
 
 .form-group input::placeholder {
@@ -53,8 +62,10 @@
 
 .form-group input:focus {
   border-color: #00bcd4;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2); /* subtle focus ring */
 }
 
+/* ── Submit button ── */
 .submit-btn {
   width: 100%;
   padding: 12px;
@@ -62,14 +73,56 @@
   color: #000;
   border: 2px solid #c8e600;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 16px);
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s;
+  touch-action: manipulation; /* removes 300ms tap delay on mobile */
 }
 
 .submit-btn:hover {
   background-color: #0097a7;
   color: #fff;
+}
+
+.submit-btn:active {
+  background-color: #006978; /* visual feedback on tap for mobile */
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+  .adduser-card {
+    padding: 30px 24px;
+  }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .adduser-card {
+    padding: 24px 16px;
+    border-radius: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .submit-btn {
+    padding: 14px; /* slightly taller tap target on phones */
+  }
 }

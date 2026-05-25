@@ -1,41 +1,118 @@
-#home{
-    background: black;
-    color: beige;
-    gap: 8rem;
-    padding: 40px 60px;
+/* ── Home section ── */
+#home {
+  background: black;
+  color: beige;
+  padding: 40px 60px;
+  box-sizing: border-box;
 }
 
-.det{
-    justify-content: center;
-    align-items: center;
-}
-.list{
-    align-items:start;
-    display: flex;
-    justify-content: center;
-
-}
-#cards{
-    display: flex;
-    justify-content: center;
-}
-.card{
-    background: rgb(96, 192, 252);
-    margin: 40px;
-    color: rgb(10, 10, 10);
-    padding: 60px 70px;
-    border: 5px solid rgb(162, 157, 8);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px 4px rgb(215, 209, 209);
+/* ── Detail section ── */
+.det {
+  display: flex; /* was missing — justify/align-items need flex to work */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-#Bu{
-    color: rgb(236, 234, 234);
-    background: black;
-    box-shadow: 2px 3px 3px white;
+/* ── List ── */
+.list {
+  display: flex;
+  align-items: flex-start; /* 'start' is not valid — use 'flex-start' */
+  justify-content: center;
+  flex-wrap: wrap; /* items wrap on smaller screens */
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* ── Cards container ── */
+#cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* cards wrap to next row on small screens */
+  gap: 20px; /* replaces large margin on each card */
+  padding: 20px;
+}
+
+/* ── Individual card ── */
+.card {
+  background: rgb(96, 192, 252);
+  color: rgb(10, 10, 10);
+  padding: 40px;
+  border: 5px solid rgb(162, 157, 8);
+  border-radius: 10px;
+  box-shadow: 5px 5px 4px rgb(215, 209, 209);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 280px; /* grow, shrink, but never narrower than 280px */
+  max-width: 400px; /* prevents cards from getting too wide on large screens */
+  box-sizing: border-box;
+}
+
+/* ── Button ── */
+#Bu {
+  color: rgb(236, 234, 234);
+  background: black;
+  box-shadow: 2px 3px 3px white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: clamp(13px, 2vw, 16px);
+  transition: background 0.2s;
+  touch-action: manipulation;
+}
+
+#Bu:hover {
+  background: rgb(30, 30, 30);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+  #home {
+    padding: 30px 30px;
+    gap: 4rem;
+  }
+
+  .card {
+    padding: 30px 24px;
+    flex: 1 1 240px;
+  }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  #home {
+    padding: 20px 16px;
+    gap: 2rem;
+  }
+
+  #cards {
+    flex-direction: column; /* stack cards vertically on phones */
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .card {
+    max-width: 100%; /* full width when stacked */
+    margin: 0;
+    padding: 24px 16px;
+  }
 }

@@ -1,28 +1,82 @@
-header{
-  background: white;
-  color: black;
+/* ── Header ── */
+header {
+  display: flex; /* was missing — justify/align-items need this to work */
   justify-content: space-around;
   align-items: center;
-  background: url(https://www.meritto.com/blog/how-a-student-admission-portal-help-in-scaling-admissions/) no-repeat center center/cover;
+  flex-wrap: wrap; /* items wrap on smaller screens */
+  background-color: #1a1a2e; /* fallback color if image fails to load */
+  background-image: url('your-image-url-here'); /* ⚠️ original URL was a webpage, not an image file */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: black;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 80px; /* ensures header has height even if content is empty */
 }
-header h1{
+
+/* ── Header heading ── */
+header h1 {
   color: rgb(234, 231, 231);
+  font-size: clamp(18px, 4vw, 32px); /* scales smoothly across screen sizes */
+  margin: 0;
+  text-align: center;
 }
-#head1{
+
+/* ── Head1 section ── */
+#head1 {
   display: flex;
   flex-direction: column;
   padding: 10px;
   justify-content: space-between;
-  gap: 2rem;
+  align-items: center; /* was missing — centers children horizontally */
+  gap: 1rem; /* reduced from 2rem — less spacing on smaller screens */
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* ── Container ── */
 .container {
   width: 100%;
   padding: 16px;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 960px;
     margin: 0 auto;
+  }
+}
+
+/* ── Tablet (≤ 768px) ── */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* stack header items vertically */
+    justify-content: center;
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  #head1 {
+    gap: 0.75rem;
+  }
+}
+
+/* ── Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  header {
+    padding: 12px 16px;
+    min-height: 60px;
+  }
+
+  header h1 {
+    font-size: clamp(16px, 5vw, 22px);
+  }
+
+  #head1 {
+    padding: 6px;
+    gap: 0.5rem;
   }
 }
